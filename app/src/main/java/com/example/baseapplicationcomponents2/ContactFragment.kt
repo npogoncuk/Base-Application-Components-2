@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.baseapplicationcomponents2.data.Datasource
 import com.example.baseapplicationcomponents2.databinding.FragmentItemListBinding
-import com.example.baseapplicationcomponents2.model.Contact
 
 
 /**
@@ -28,7 +27,7 @@ class ContactFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.list?.adapter = MyContactRecyclerViewAdapter(Datasource.getContacts())
+        binding?.list?.adapter = MyContactRecyclerViewAdapter(Datasource.getContacts(requireContext()))
 
     }
 

@@ -1,17 +1,13 @@
 package com.example.baseapplicationcomponents2
 
-import android.content.Context
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.lifecycle.viewmodel.viewModelFactory
 import androidx.navigation.findNavController
-
+import androidx.recyclerview.widget.RecyclerView
 import com.example.baseapplicationcomponents2.databinding.FragmentItemBinding
 import com.example.baseapplicationcomponents2.model.Contact
-import java.nio.file.Files.size
 
 class MyContactRecyclerViewAdapter(
     private val contacts: List<Contact>

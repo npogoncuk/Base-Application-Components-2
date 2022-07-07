@@ -1,12 +1,13 @@
 package com.example.baseapplicationcomponents2
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.baseapplicationcomponents2.databinding.FragmentDetailBinding
 
@@ -31,8 +32,20 @@ class DetailFragment : Fragment() {
             binding?.organization?.text = organization
             binding?.email?.text = email
         }
-        binding?.number?.setOnClickListener() {
-            Toast.makeText(requireContext(), binding?.number?.text, Toast.LENGTH_SHORT).show()
+        binding?.number?.setOnClickListener {
+            val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:${binding?.number?.text.toString()}"))
+            if (intent.resolveActivity(requireActivity().packageManager) != null) startActivity(intent)
+        }
+
+        binding?.email?.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SENDTO)
+
+            intent.data = Uri.parse("mailto:")
+            intent.putExtra(Intent.EXTRA_EMAIL, binding?.email?.text.toString())
+
+            if (intent.resolveActivity(activity!!.packageManager) != null) {
+                startActivity(intent)
+            } else Log.d("emailIntent", "null")
         }
     }
 
