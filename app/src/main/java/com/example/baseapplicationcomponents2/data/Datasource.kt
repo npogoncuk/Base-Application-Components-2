@@ -1,17 +1,19 @@
 package com.example.baseapplicationcomponents2.data
 
+import android.content.ContentResolver
+import android.content.Context
+import android.database.Cursor
+import android.provider.ContactsContract
+import android.util.Log
 import com.example.baseapplicationcomponents2.model.Contact
 
-class Datasource {
+
+class Datasource() {
     companion object {
-        fun getContacts() = listOf(Contact("nazar", "1"), Contact("sasha", "2"),
-        Contact("amamamam", "3"),Contact("nazar", "1"), Contact("sasha", "2"),
-            Contact("amamamam", "3"),Contact("nazar", "1"), Contact("sasha", "2"),
-            Contact("amamamam", "3"),Contact("nazar", "1"), Contact("sasha", "2"),
-            Contact("amamamam", "3"),Contact("nazar", "1"), Contact("sasha", "2"),
-            Contact("amamamam", "3"),Contact("nazar", "1"), Contact("sasha", "2"),
-            Contact("amamamam", "3"),Contact("nazar", "1"), Contact("sasha", "2"),
-            Contact("amamamam", "3")
-        )
+        var c: List<Contact> = listOf()
+        fun getContacts() = c
     }
+
+
+
 }
